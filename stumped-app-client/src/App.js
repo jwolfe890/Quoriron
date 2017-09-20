@@ -5,7 +5,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>SHOPPER'S PARADISE</h1>
+        <div>
+          <Products products={['products']}/>
+        </div>
       </div>
     );
   }
