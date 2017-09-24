@@ -13,13 +13,7 @@ class AskQuestion extends Component {
       }
     }
 
-  // handleOnChange = event => {
-  //   const currentQuestionFormData = Object.assign( {}, this.props.questionFormData, {
-  //     title: event.target.value
-  //   })
-  //   this.props.updateQuestionFormData(currentQuestionFormData)
-  // }
-
+  // Should have a validation for title
   handleOnChange = event => {
     const { value } = event.target;
     this.setState({
@@ -27,18 +21,11 @@ class AskQuestion extends Component {
     });
   }
 
-
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.createQuestion(this.state)
     this.setState({ title: '' });
   }
-
-
-  // handleOnSubmit = event => {
-  //   event.preventDefault();
-  //   this.props.createQuestion(this.props.questionFormData)
-  // }
 
   render() {
     return (
