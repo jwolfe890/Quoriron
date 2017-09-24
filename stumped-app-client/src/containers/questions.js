@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import AskQuestion from './askquestion'
-import QuestionCard from '../components/questionCard';
+import QuestionCard from '../containers/questionCard';
 import { getQuestions } from '../actions/questions';
 
 class Questions extends Component {
@@ -11,9 +11,7 @@ class Questions extends Component {
     this.props.getQuestions()
   }
 
-
   render() {
-   
     const { questions } = this.props;
     const renderQuestions = questions.map(question =>
         <div>
@@ -24,7 +22,7 @@ class Questions extends Component {
     return (
       <div>
         <div>
-          <AskQuestion askQuestion={this.askQuestion} />
+          <AskQuestion />
         </div>
         {renderQuestions}
       </div>

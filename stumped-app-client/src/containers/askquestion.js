@@ -5,25 +5,40 @@ import { updateQuestionFormData } from '../actions/questionForm';
 import { createQuestion } from '../actions/questions';
 
 class AskQuestion extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      title: "",
+  constructor(props) {
+      super(props);
+      this.state = {
+        title: ""
+      }
     }
-  }
+
+  // handleOnChange = event => {
+  //   const currentQuestionFormData = Object.assign( {}, this.props.questionFormData, {
+  //     title: event.target.value
+  //   })
+  //   this.props.updateQuestionFormData(currentQuestionFormData)
+  // }
 
   handleOnChange = event => {
-    const currentQuestionFormData = Object.assign( {}, this.props.questionFormData, {
-      title: event.target.value
-    })
-    this.props.updateQuestionFormData(currentQuestionFormData)
+    const { value } = event.target;
+    this.setState({
+      title: value
+    });
   }
 
+
   handleOnSubmit = event => {
-    event.preventDefault();
-    this.props.createQuestion(this.props.questionFormData)
+    event.preventDefault()
+    this.props.createQuestion(this.state)
+    this.setState({ title: '' });
   }
+
+
+  // handleOnSubmit = event => {
+  //   event.preventDefault();
+  //   this.props.createQuestion(this.props.questionFormData)
+  // }
 
   render() {
     return (
@@ -31,7 +46,7 @@ class AskQuestion extends Component {
         <input
           type="text"
           name="title"
-          value={this.props.title}
+          value={this.state.title}
           onChange={this.handleOnChange}
           placeholder="Ask a Question"
         />
