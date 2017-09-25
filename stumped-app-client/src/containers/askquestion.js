@@ -1,30 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { updateQuestionFormData } from '../actions/questionForm';
 import { createQuestion } from '../actions/questions';
 
 class AskQuestion extends Component {
 
-  constructor(props) {
-      super(props);
+  constructor() {
+      super();
       this.state = {
-        title: ""
+        title: "",
+        details: ""
       }
     }
 
   // Should have a validation for title
   handleOnChange = event => {
-    const { value } = event.target;
+    const { name, value } = event.target;
     this.setState({
-      title: value
+      [name]: value
     });
   }
 
   handleOnSubmit = event => {
     event.preventDefault()
-    this.props.createQuestion(this.state)
-    this.setState({ title: '' });
+    const { history, createQuestion } = this.props
+    // this.props.createQuestion(this.state)
+    createQuestion(this.state, history)
+    this.setState({ title: '', details: '' });
   }
 
   render() {
@@ -37,6 +39,13 @@ class AskQuestion extends Component {
           onChange={this.handleOnChange}
           placeholder="Ask a Question"
         />
+        <input
+          type="text"
+          name="details"
+          value={this.state.details}
+          onChange={this.handleOnChange}
+          placeholder="Add Details"
+        />
 
         <button>Ask Question</button>
       </form>
@@ -44,13 +53,12 @@ class AskQuestion extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return ({
-    questionFormData: state.questionFormData
-  })
-}
+// const mapStateToProps = (state) => {
+//   return ({
+//     questionFormData: state.questionFormData
+//   })
+// }
 
-export default connect(mapStateToProps, { 
-  updateQuestionFormData, 
+export default connect(null, { 
   createQuestion 
 })(AskQuestion);

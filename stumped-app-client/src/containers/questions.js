@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Route, Link, Switch } from 'react-router-dom';
 
 import AskQuestion from './askquestion'
 import QuestionCard from '../containers/questionCard';
@@ -12,18 +13,16 @@ class Questions extends Component {
   }
 
   render() {
-    const { questions } = this.props;
-    const renderQuestions = questions.map(question =>
-        <div>
-          <QuestionCard question={question} /> 
-        </div>
-      )
+    const { questions, match } = this.props;
+
+    const renderQuestions = questions.map(question => 
+      <div>
+        <Link key={question.id} to={`/questions/${question.id}`}><h4>{question.title}</h4></Link>
+      </div>
+    );
 
     return (
       <div>
-        <div>
-          <AskQuestion />
-        </div>
         {renderQuestions}
       </div>
     );

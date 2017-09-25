@@ -1,5 +1,3 @@
-import { resetQuestionForm } from './questionForm'
-
 const API_URL = process.env.REACT_APP_API_URL;
 
 // Action Creators
@@ -27,7 +25,7 @@ export const getQuestions = () => {
   }
 }
 
-export const createQuestion = question => {
+export const createQuestion = (question, routerHistory) => {
   return dispatch => {
     return fetch(`${API_URL}/questions`, {
       method: 'POST',
@@ -38,8 +36,8 @@ export const createQuestion = question => {
     })
       .then(response => response.json())
       .then(question => {
-        dispatch(addQuestion(question))
-        dispatch(resetQuestionForm())
+        dispatch(addQuestion(question));
+        routerHistory.replace(`/questions/${question.id}`)
     })
       .catch(error => console.log(error))
   }
