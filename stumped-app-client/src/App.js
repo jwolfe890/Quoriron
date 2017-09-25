@@ -19,9 +19,11 @@ class App extends Component {
       <Router>
         <div className="App">
           <Navbar />
-            <Route exact path='/' component={Questions}/>
-            <Route path='/questions/:questionId' component={questionCard}/>
-            <Route path='/questions/new' component={askQuestion}/>
+            <Switch>
+              <Route exact path='/' component={Questions}/>
+              <Route path='/questions/new' component={askQuestion}/>
+              <Route path='/questions/:questionId' component={questionCard}/>
+            </Switch>
         </div>
       </Router>
     );

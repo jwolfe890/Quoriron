@@ -25,6 +25,7 @@ export const getQuestions = () => {
   }
 }
 
+
 export const createQuestion = (question, routerHistory) => {
   return dispatch => {
     return fetch(`${API_URL}/questions`, {
@@ -42,6 +43,8 @@ export const createQuestion = (question, routerHistory) => {
       .catch(error => console.log(error))
   }
 }
+
+
 
 
 

@@ -5,17 +5,38 @@ class CreateAnswer extends Component {
     super(props);
 
     this.state = {
-    
+      content: ""
     }
 
   }
 
-  render() {
+    // Should have a validation for title
+  handleOnChange = event => {
+    const { answer, value } = event.target;
+    this.setState({
+      answer: value
+    });
+  }
 
+  handleOnSubmit = event => {
+    event.preventDefault()
+    const { history, createAnswer } = this.props
+    createAnswer(this.state, history)
+    this.setState({ content: '' });
+  }
+
+  render() {
     return (
-        <div>
-            <p>Hello from answer component</p>
-        </div>
+      <form onSubmit={this.handleOnSubmit}>
+        <input
+          type="text"
+          name="answer"
+          value={this.state.content}
+          onChange={this.handleOnChange}
+          placeholder="Add an Answer"
+        />
+        <button>Answer</button>
+      </form>
     );
   }
 }

@@ -12,6 +12,7 @@ class questionCard extends Component {
       <div>
         <h4>{question.title}</h4>
         <p>{question.details}</p>
+        <CreateAnswer questionId={question.id} />
       </div>
     );
   }
