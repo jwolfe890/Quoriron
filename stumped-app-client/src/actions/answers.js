@@ -1,22 +1,24 @@
 const API_URL = process.env.REACT_APP_API_URL;
 
 // ** Action Creators **
-export const setAnswers = answers => {
+export const setAnswers = (answers, questionId) => {
   return {
-    type: 'SET_ANSWERS',
+    type: 'GET_ANSWERS_SUCCESS',
     answers,
-    postId: answers[0].question.id
+    questionId: questionId 
   };
 };
 
+// answers[0].question_id
+
 // ** Async Actions **
-export const getAnswers = questiontId => {
+export const getAnswers = (questionId) => {
   return dispatch => {
     return fetch(`${API_URL}/questions/${questionId}/answers`)
       .then(response => response.json())
-      .then(answers => {
-        dispatch(setAnswers(answers));
-      })
-      .catch(error => console.log(error));
+      .then(answers => dispatch(setAnswers(answers, questionId)))
   };
 };
+
+
+

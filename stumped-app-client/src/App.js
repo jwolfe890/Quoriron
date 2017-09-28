@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import Questions from './containers/questions'
 import questionCard from './containers/questionCard'
 import askQuestion from './containers/askquestion'
 import Navbar from './components/Navbar'
+
+import { getQuestions } from './actions/questions';
 
 import './App.css';
 import {
@@ -12,7 +16,12 @@ import {
   Switch
 } from 'react-router-dom'
 
+
 class App extends Component {
+
+  componentDidMount() {
+    this.props.getQuestions()
+  }
 
   render() {
     return (
@@ -30,4 +39,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, { getQuestions })(App);
+
+
+

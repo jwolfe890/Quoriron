@@ -6,6 +6,11 @@ export default (state = [], action) => {
     case 'CREATE_QUESTION_SUCCESS':
       return state.concat(action.question);
 
+    case 'GET_QUESTION_ANSWERS':
+
+      debugger
+
+
     default:
       return state;
   }

@@ -15,6 +15,13 @@ const addQuestion = question => {
   }
 }
 
+const setAnswers = questionId => {
+  return {
+    type: 'GET_QUESTION_ANSWERS',
+    questionId
+  }
+}
+
 // Async Actions
 export const getQuestions = () => {
   return dispatch => {
@@ -24,7 +31,6 @@ export const getQuestions = () => {
     .catch(error => console.log(error));
   }
 }
-
 
 export const createQuestion = (question, routerHistory) => {
   return dispatch => {
@@ -43,6 +49,7 @@ export const createQuestion = (question, routerHistory) => {
       .catch(error => console.log(error))
   }
 }
+
 
 
 

@@ -59,6 +59,4 @@ class AskQuestion extends Component {
 //   })
 // }
 
-export default connect(null, { 
-  createQuestion 
-})(AskQuestion);
+export default connect(null, { createQuestion })(AskQuestion);

@@ -6,12 +6,11 @@ import {
 import thunk from 'redux-thunk';
 
 import questions from './reducers/questionsReducer';
-import questionFormData from './reducers/questionFormData';
-
+import answers from './reducers/answersReducer';
 
 const reducers = combineReducers({
   questions,
-  questionFormData
+  answers
 });
 
 const middleware = [thunk];

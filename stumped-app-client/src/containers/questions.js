@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route, Link, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+} from 'react-router-dom'
 
-import AskQuestion from './askquestion'
-import QuestionCard from '../containers/questionCard';
+import AskQuestion from './askquestion';
+import questionCard from './questionCard';
 import { getQuestions } from '../actions/questions';
 
 class Questions extends Component {
-
-  componentDidMount() {
-    this.props.getQuestions()
-  }
 
   render() {
     const { questions, match } = this.props;
@@ -20,19 +20,23 @@ class Questions extends Component {
         <Link key={question.id} to={`/questions/${question.id}`}><h4>{question.title}</h4></Link>
       </div>
     );
-
+    
     return (
-      <div>
-        {renderQuestions}
-      </div>
+
+        <div>
+          {renderQuestions}
+        </div>
     );
   }  
 }
 
 const mapStateToProps = (state) => {
+
+  debugger
+
   return ({
     questions: state.questions
   })
 }
 
-export default connect(mapStateToProps, { getQuestions })(Questions);
+export default connect(mapStateToProps)(Questions);
