@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getAnswers } from '../actions/answers'
 import CreateAnswer from './createAnswer'
 import Answers from '../containers/answers'
+import AnswerCard from '../components/answercard'
 
 class questionCard extends Component {
 
@@ -18,27 +19,33 @@ class questionCard extends Component {
     this.props.getAnswers(questionId)
   }
 
+  componentWillReceiveProps(nextProps) { 
+      debugger
+  }
+
   render() {
 
     const { question } = this.props
-
     var renderAnswers = []
+
+    debugger
 
     if (question.answers) {
       var renderAnswers = question.answers.map(answer =>  
         <div>
-          <p>{answer.id}</p>
+          <AnswerCard key={answer.id} question={question} answer={answer.content} />
         </div>
       );
-    } 
+    }
 
-    debugger
-  
     return (
       <div>
         <h4>{question.title}</h4>
         <p>{question.details}</p>
         <p>{renderAnswers}</p>
+        <div>
+          <CreateAnswer questionId={this.props.match.params.questionId} />
+        </div>
       </div>
     );
   }

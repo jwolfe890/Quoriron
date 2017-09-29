@@ -13,8 +13,7 @@ class AnswerCard extends Component {
   render() {
     return (
         <div>
-            Dumb
-          <p>{this.props.answer}</p>
+          Answer Card: <p>{this.props.answer}</p>
         </div>
     );
   }

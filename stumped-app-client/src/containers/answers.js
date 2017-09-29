@@ -16,17 +16,9 @@ class Answers extends Component {
 
   render() {
 
-    const { answers } = this.props
-
-    const renderAnswers = answers.map(answer => 
-        <AnswerCard key={answer.id} answer={answer.content} />
-    );
-
-    console.log({answers})
-
     return (
         <div>
-          {renderAnswers}
+          <p>{this.props.answer}</p>
         </div>
     );
   }

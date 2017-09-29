@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { createAnswer } from '../actions/answers'
 
 class CreateAnswer extends Component {
   constructor(props) {
@@ -9,36 +12,47 @@ class CreateAnswer extends Component {
     }
 
   }
-
     // Should have a validation for title
   handleOnChange = event => {
-    const { answer, value } = event.target;
+    const { value } = event.target;
+
     this.setState({
-      answer: value
+      content: value
     });
   }
 
   handleOnSubmit = event => {
     event.preventDefault()
-    const { history, createAnswer } = this.props
-    createAnswer(this.state, history)
+    this.props.createAnswer(this.state, this.props.questionId)
     this.setState({ content: '' });
   }
 
   render() {
     return (
       <form onSubmit={this.handleOnSubmit}>
-        <input
-          type="text"
-          name="answer"
-          value={this.state.content}
-          onChange={this.handleOnChange}
-          placeholder="Add an Answer"
-        />
-        <button>Answer</button>
+        <div>
+          <div>
+            <p>Add an Answer</p>
+          </div>
+          <textarea
+            name="content"
+            value={this.state.content}
+            onChange={this.handleOnChange}
+          >
+          </textarea>
+        </div>
+        <div>
+          <button
+            type="submit"
+          >
+            Add Answer
+          </button>
+        </div>
       </form>
     );
   }
 }
 
-export default CreateAnswer;
+export default connect(null, {createAnswer})(CreateAnswer);
+
+
