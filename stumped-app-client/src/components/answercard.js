@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class AnswerCard extends Component {
   constructor(props) {
@@ -11,6 +12,9 @@ class AnswerCard extends Component {
   }
 
   render() {
+
+    debugger
+
     return (
         <div>
           Answer Card: <p>{this.props.answer}</p>
@@ -19,4 +23,6 @@ class AnswerCard extends Component {
   }
 }
 
+
 export default AnswerCard;
+

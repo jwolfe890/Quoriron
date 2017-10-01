@@ -24,10 +24,5 @@ class Answers extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return ({
-    answers: state.answers
-  })
-}
 
-export default connect(mapStateToProps, { getAnswers })(Answers);
+export default Answers;

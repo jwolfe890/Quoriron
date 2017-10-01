@@ -11,8 +11,6 @@ export const setAnswers = (answers, questionId) => {
   };
 };
 
-// answers[0].question_id
-
 export const addAnswer = (answer) => {
   return {
     type: 'CREATE_ANSWER_SUCCESS',
@@ -32,7 +30,6 @@ export const createAnswer = (answer, questionId) => {
       .then(response => response.json())
       .then(answer => {
         dispatch(addAnswer(answer));
-        dispatch(getQuestions())
     })
       .catch(error => console.log(error))
   }

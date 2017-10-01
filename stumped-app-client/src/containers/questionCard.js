@@ -12,54 +12,64 @@ class questionCard extends Component {
     super(props);
     this.state = {
     }
+
   }
+
+  // question delete/and maybe patch function here
 
   componentDidMount() {
     const { questionId } = this.props.match.params
     this.props.getAnswers(questionId)
   }
 
-  componentWillReceiveProps(nextProps) { 
+    shouldComponentUpdate() {
       debugger
-  }
+      return true
+    }
 
   render() {
 
-    const { question } = this.props
+    const { questionId } = this.props.match.params
+
+
+    const { questions } = this.props
+    const question = questions.find(question => question.id == questionId)
     var renderAnswers = []
 
     debugger
 
-    if (question.answers) {
-      var renderAnswers = question.answers.map(answer =>  
-        <div>
-          <AnswerCard key={answer.id} question={question} answer={answer.content} />
-        </div>
-      );
-    }
+    // if (question) {
+    //   var renderAnswers = question.answers.map(answer =>  
+    //     <div>
+    //       <AnswerCard key={answer.id} question={question} answer={answer.content} />
+    //     </div>
+    //   );
+    // }
 
     return (
-      <div>
-        <h4>{question.title}</h4>
-        <p>{question.details}</p>
-        <p>{renderAnswers}</p>
         <div>
-          <CreateAnswer questionId={this.props.match.params.questionId} />
+        { question ?
+        <div> 
+            <h4>{question.title}</h4>
+            <p>{question.details}</p>
+          <div>
+            <p>{renderAnswers}</p>
+          </div>
+          <div>
+            <CreateAnswer questionId={this.props.match.params.questionId} />
+          </div>
+        </div> 
+        : "Loading" 
+        }
         </div>
-      </div>
     );
   }
 }
 
-  const mapStateToProps = (state, ownProps) => {
-    const question = state.questions.find(question => question.id == ownProps.match.params.questionId)
-
-      if (question) {
-        return { question }
-      } else {
-        return { question: {},
-         }
-          }
-      }
+const mapStateToProps = (state) => {
+  return ({
+    questions: state.questions
+  })
+}
 
 export default connect(mapStateToProps, {getAnswers})(questionCard);

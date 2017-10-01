@@ -12,6 +12,13 @@ import { getQuestions } from '../actions/questions';
 
 class Questions extends Component {
 
+    constructor(props) {
+      super(props);
+      this.state = {
+  
+      }
+    }
+
   render() {
     const { questions, match } = this.props;
 
@@ -22,7 +29,6 @@ class Questions extends Component {
     );
     
     return (
-
         <div>
           {renderQuestions}
         </div>
@@ -31,9 +37,6 @@ class Questions extends Component {
 }
 
 const mapStateToProps = (state) => {
-
-  debugger
-
   return ({
     questions: state.questions
   })

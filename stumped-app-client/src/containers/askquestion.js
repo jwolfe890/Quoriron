@@ -24,7 +24,6 @@ class AskQuestion extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     const { history, createQuestion } = this.props
-    // this.props.createQuestion(this.state)
     createQuestion(this.state, history)
     this.setState({ title: '', details: '' });
   }
@@ -53,10 +52,4 @@ class AskQuestion extends Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return ({
-//     questionFormData: state.questionFormData
-//   })
-// }
-
-export default connect(null, { createQuestion })(AskQuestion);
+export default connect(null, {createQuestion})(AskQuestion);

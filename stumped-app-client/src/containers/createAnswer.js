@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { createAnswer } from '../actions/answers'
+import { getQuestions } from '../actions/questions';
 
 class CreateAnswer extends Component {
   constructor(props) {
