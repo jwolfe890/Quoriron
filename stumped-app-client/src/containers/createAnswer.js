@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import Answers from './answers'
 import { createAnswer } from '../actions/answers'
-import { getQuestions } from '../actions/questions';
 
 class CreateAnswer extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       content: ""
     }
-
   }
-    // Should have a validation for title
+
   handleOnChange = event => {
     const { value } = event.target;
 
@@ -30,11 +27,9 @@ class CreateAnswer extends Component {
 
   render() {
     return (
+    <div>
       <form onSubmit={this.handleOnSubmit}>
         <div>
-          <div>
-            <p>Add an Answer</p>
-          </div>
           <textarea
             name="content"
             value={this.state.content}
@@ -43,13 +38,11 @@ class CreateAnswer extends Component {
           </textarea>
         </div>
         <div>
-          <button
-            type="submit"
-          >
-            Add Answer
-          </button>
+          <button type="submit">Add Answer</button>
         </div>
       </form>
+      <Answers questionId={this.props.questionId} />
+    </div>
     );
   }
 }

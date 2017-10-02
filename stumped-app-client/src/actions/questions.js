@@ -15,13 +15,6 @@ const addQuestion = question => {
   }
 }
 
-const setAnswers = questionId => {
-  return {
-    type: 'GET_QUESTION_ANSWERS',
-    questionId
-  }
-}
-
 // Async Actions
 export const getQuestions = () => {
   return dispatch => {

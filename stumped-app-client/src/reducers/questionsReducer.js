@@ -9,32 +9,25 @@ export default (state = [], action) => {
     case 'CREATE_QUESTION_SUCCESS':
       return state.concat(action.question);
 
+    case 'CREATE_ANSWER_SUCCESS':
     case 'GET_ANSWERS_SUCCESS':
-
-      debugger
+    case 'UPDATE_ANSWER_SUCCESS':
 
       const index = state.findIndex(question => question.id == action.questionId);
       const question = state[index];
 
       const updatedQuestion = Object.assign({}, question, {
-        answers: action.answers });
+        answers: answersReducer(question.answers, action) });
 
-      const addedAnswer = [...state.slice(0, index),
+      const updatedQuestions = [...state.slice(0, index),
                     updatedQuestion,
                    ...state.slice(index + 1)
                   ]
 
-      return addedAnswer
+      return updatedQuestions
 
     default:
       return state;
  
   }
 }
-
-            // return [
-            //     ...state.slice(0, index),
-            //     updatedQuestion,
-            //     ...state.slice(index + 1)
-            // ];
-      

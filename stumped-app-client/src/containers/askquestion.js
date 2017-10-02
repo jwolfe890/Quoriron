@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import { createQuestion } from '../actions/questions';
 
 class AskQuestion extends Component {
@@ -13,7 +12,6 @@ class AskQuestion extends Component {
       }
     }
 
-  // Should have a validation for title
   handleOnChange = event => {
     const { name, value } = event.target;
     this.setState({
