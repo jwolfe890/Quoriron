@@ -15,6 +15,13 @@ const addQuestion = question => {
   }
 }
 
+const removeQuestion = questionId => {
+  return {
+    type: 'DELETE_QUESTION_SUCCESS',
+    questionId: questionId
+  }
+}
+
 // Async Actions
 export const getQuestions = () => {
   return dispatch => {
@@ -43,8 +50,16 @@ export const createQuestion = (question, routerHistory) => {
   }
 }
 
-
-
-
+export const deleteQuestion = (questionId, routerHistory) => {
+  return dispatch => {
+    return fetch(`${API_URL}/questions/${questionId}`, {
+      method: 'DELETE'      
+    }).then(response => {
+        dispatch(removeQuestion(questionId));
+        routerHistory.replace(`/`);
+    })
+    .catch(error => console.log(error));
+  };
+};
 
 

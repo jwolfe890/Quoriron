@@ -38,7 +38,6 @@ class AnswerCard extends Component {
 
   render() {
     console.log(this.state.count)
-    debugger
     return (
         <div className="mybox">
           <p>{this.props.answer.content}</p>

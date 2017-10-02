@@ -2,35 +2,43 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CreateAnswer from './createAnswer'
 
+import { deleteQuestion } from '../actions/questions'
+
 class questionCard extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      question: ""
     }
+
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
-  handleDelete = (event) => {
-    
+  handleDelete = () => {
+    const { history } = this.props
+    deleteQuestion(this.state.question.id, history)
   }
 
-  handleEdit = (event) => {
-
+  componentDidMount() {
+    const { questionId } = this.props.match.params
+    const { questions } = this.props
+    const question = questions.find(question => question.id == questionId)
+      this.setState({
+        question
+      })
   }
 
   render() {
-    const { questionId } = this.props.match.params
-    const { questions, match } = this.props
-    const question = questions.find(question => question.id == questionId)
+    const { match } = this.props
 
     return (
         <div>
-        { question ?
+        { this.state.question ?
           <div>
-            <h4>{question.title}</h4>
-            <p>{question.details}</p>
+            <h4>{this.state.question.title}</h4>
+            <p>{this.state.question.details}</p>
             <button onClick={this.handleDelete}>Delete</button>
-            <button onClick={this.handleEdit}>Edit</button>
             <CreateAnswer questionId={match.params.questionId} />
           </div>
         : "Loading" 
@@ -46,4 +54,4 @@ const mapStateToProps = (state, ownProps) => {
   })
 }
 
-export default connect(mapStateToProps)(questionCard);
+export default connect(mapStateToProps, { deleteQuestion })(questionCard);
