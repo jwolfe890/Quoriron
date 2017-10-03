@@ -15,8 +15,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def destroy
-    binding.pry
-      @question = question.find_by(id: params[:questionid])
+    @question = Question.find(params[:id])
     if @question.destroy
       render status: 204
     else
