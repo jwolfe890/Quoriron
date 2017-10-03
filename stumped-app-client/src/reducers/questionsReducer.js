@@ -1,6 +1,9 @@
 import answersReducer from './answersReducer';
 
 export default (state = [], action) => {
+
+  debugger
+
   switch(action.type) {
     
     case 'GET_QUESTIONS_SUCCESS':
@@ -11,7 +14,9 @@ export default (state = [], action) => {
 
     case 'DELETE_QUESTION_SUCCESS': { 
 
-      const index = state.findIndex(question => question.id === action.questionId);
+      debugger
+
+      const index = state.findIndex(question => question.id == action.questionId);
             
       const removedQuestionObject = [
             ...state.slice(0, index),
@@ -19,6 +24,8 @@ export default (state = [], action) => {
             ];
 
       return removedQuestionObject
+
+      debugger
 
     }
 

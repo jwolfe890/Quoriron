@@ -50,16 +50,28 @@ export const createQuestion = (question, routerHistory) => {
   }
 }
 
-export const deleteQuestion = (questionId, routerHistory) => {
-  return dispatch => {
+// export const deleteQuestion = (questionId, routerHistory) => {
+//   return dispatch => {
+//     return fetch(`${API_URL}/questions/${questionId}`, {
+//       method: 'DELETE'      
+//     }).then(response => {
+//       dispatch(removeQuestion(questionId))
+//       routerHistory.replace(`/`)
+//     })
+//   };
+// };
+
+export function deleteQuestion(questionId, routerHistory) {
     return fetch(`${API_URL}/questions/${questionId}`, {
-      method: 'DELETE'      
-    }).then(response => {
-        dispatch(removeQuestion(questionId));
-        routerHistory.replace(`/`);
-    })
-    .catch(error => console.log(error));
-  };
-};
+        method: 'DELETE',
+    }).then(res => {
+      debugger
+      return removeQuestion(questionId)
+    }) 
+  }
 
 
+
+
+
+        
