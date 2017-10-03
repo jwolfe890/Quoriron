@@ -52,10 +52,11 @@ export const createQuestion = (question, routerHistory) => {
 
 export function deleteQuestion(questionId, routerHistory) {
   return (dispatch) => {
-    fetch(`${API_URL}/questions/${questionId}`, {
+    return fetch(`${API_URL}/questions/${questionId}`, {
       method: 'DELETE',
     }).then(res => {
       dispatch(removeQuestion(questionId))
+      routerHistory.replace(`/`)
     })
   }
 }

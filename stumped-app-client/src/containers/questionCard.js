@@ -11,14 +11,14 @@ class questionCard extends Component {
     super(props);
     this.state = {
     }
-
     this.handleDelete = this.handleDelete.bind(this)
   }
 
   handleDelete = () => {
     const { questionId } = this.props.match.params
     const { history } = this.props
-    deleteQuestion(questionId, history)(deleteQuestion);
+    this.props.deleteQuestion(questionId, history);
+
   }
 
   render() {
