@@ -18,7 +18,6 @@ class questionCard extends Component {
     const { questionId } = this.props.match.params
     const { history } = this.props
     this.props.deleteQuestion(questionId, history);
-
   }
 
   render() {

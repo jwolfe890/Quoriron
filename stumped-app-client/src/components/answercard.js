@@ -37,11 +37,10 @@ class AnswerCard extends Component {
   }
 
   render() {
-    console.log(this.state.count)
     return (
         <div className="mybox">
           <p>{this.props.answer.content}</p>
-          <p>{this.state.count}</p>
+          <p>Awesomeness Rating: {this.state.count}</p>
           <button onClick={this.upVote}>Upvote</button>
           <button onClick={this.downVote}>Downvote</button>
         </div>

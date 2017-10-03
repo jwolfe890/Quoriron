@@ -17,18 +17,18 @@ class Answers extends Component {
 
   render() {
       const { questions, questionId } = this.props;
-      const question = questions.find(question => question.id == questionId)
+      const question = questions.find(question => question.id == questionId);
 
-        
       if (question && question.answers) {
-        var renderAnswers = question.answers.map(answer =>  
-          <AnswerCard key={answer.id} answer={answer} questionId={questionId} />
-        );
-      }
+          var sortedAnswers = question.answers.sort(function(a,b) {return (a.count < b.count) ? 1 : ((b.count > a.count) ? -1 : 0);} 
+          ).map(answer =>  
+            <AnswerCard key={answer.id} answer={answer} questionId={questionId} />
+        )
+      };
 
   return (
         <div> 
-          {renderAnswers}
+          {sortedAnswers}
         </div>
       );
   }
