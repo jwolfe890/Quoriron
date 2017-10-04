@@ -16,12 +16,13 @@ class Question extends Component {
     this.handleDelete = this.handleDelete.bind(this)
   }
 
-  componentDidMount() {
-    this.props.getQuestion(this.props.match.params.questionId)
+  shouldComponentUpdate(nextProps, nextState) {
+    debugger
+    return true
   }
 
-  shouldComponentUpdate() {
-    return true
+  componentDidMount() {
+      this.props.getQuestion(this.props.match.params.questionId)
   }
 
   handleDelete = () => {
@@ -47,10 +48,17 @@ class Question extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return ({
-    question: state.question
-  })
-}
+const mapStateToProps = (state, ownProps) => {
+   if (state.question && state.question.id == ownProps.match.params.questionId) {
+      return { question: state.question }
+    } else {
+      return { question: {} }
+    }
+  }
+
+
+
+
+
 
 export default connect(mapStateToProps, { deleteQuestion, getQuestion })(Question);

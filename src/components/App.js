@@ -9,7 +9,7 @@ import Home from '../components/Home'
 
 class App extends Component {
 
-  render() {
+  render() {    
     return (
       <Router>
         <div className="App">

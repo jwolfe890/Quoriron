@@ -6,27 +6,15 @@ import Answer from './answer'
 import { getQuestions } from '../actions/questions'
 
 class Answers extends Component {
-
-      componentDidMount() {
-        const { questions, questionId } = this.props;
-        const question = questions.find(question => question.id == questionId)
-        if (!question.answers) {
-          this.props.getAnswers(questionId)
-        }
-      }
-
   render() {
-      const { questions, questionId } = this.props;
-      const question = questions.find(question => question.id == questionId);
-
-      if (question && question.answers) {
+    const { question } = this.props
+      if (question) {
           var sortedAnswers = question.answers.sort(function(a,b) 
             {return (a.count < b.count) ? 1 : ((b.count > a.count) ? -1 : 0);} 
           ).map(answer =>  
-            <Answer key={answer.id} answer={answer} questionId={questionId} />
+            <Answer key={answer.id} answer={answer} questionId={question.id} />
         )
       };
-
   return (
         <div> 
           {sortedAnswers}
@@ -37,7 +25,7 @@ class Answers extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-    questions: state.questions
+    question: state.question
   })
 }
 

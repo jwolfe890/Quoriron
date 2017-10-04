@@ -15,6 +15,13 @@ const addQuestion = question => {
   }
 }
 
+const addQuestionData = question => {
+  return {
+    type: 'CREATE_DATA_SUCCESS',
+    question
+  }
+}
+
 const removeQuestion = questionId => {
   return {
     type: 'DELETE_QUESTION_SUCCESS',
@@ -36,7 +43,13 @@ export const getQuestion = (questionId) => {
   return dispatch => {
     return fetch(`${API_URL}/questions/${questionId}`)
     .then(response => response.json())
-    .then(question => dispatch(addQuestion(question)))
+    .then(question => {
+
+        debugger
+
+      dispatch(addQuestionData(question))
+
+  })
     .catch(error => console.log(error));
   }
 }

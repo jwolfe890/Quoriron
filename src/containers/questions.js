@@ -6,12 +6,19 @@ import { getQuestions } from '../actions/questions'
 
 class Questions extends Component {
 
+    shouldComponentUpdate(nextProps, nextState) {
+      if (nextProps.questions.length != this.props.questions.length) {
+        return true
+      } else {
+        return false
+      }
+    }
+
     componentDidMount() {
       this.props.getQuestions()
     }
 
   render() {
-
     const renderQuestions = this.props.questions.map(question => 
       <Link key={question.id} to={`/questions/${question.id}`}><h4>{question.title}</h4></Link>
     );
