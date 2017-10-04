@@ -32,6 +32,15 @@ export const getQuestions = () => {
   }
 }
 
+export const getQuestion = (questionId) => {
+  return dispatch => {
+    return fetch(`${API_URL}/questions/${questionId}`)
+    .then(response => response.json())
+    .then(question => dispatch(addQuestion(question)))
+    .catch(error => console.log(error));
+  }
+}
+
 export const createQuestion = (question, routerHistory) => {
   return dispatch => {
     return fetch(`${API_URL}/questions`, {

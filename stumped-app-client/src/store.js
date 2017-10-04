@@ -7,9 +7,11 @@ import thunk from 'redux-thunk';
 
 import questions from './reducers/questionsReducer';
 import answers from './reducers/answersReducer';
+import question from './reducers/questionReducer';
 
 const reducers = combineReducers({
   questions,
+  question,
   answers
 });
 

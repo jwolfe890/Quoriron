@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 
+import { getQuestions } from '../actions/questions'
+
 class Questions extends Component {
 
+    componentDidMount() {
+      this.props.getQuestions()
+    }
+
   render() {
-    const { questions } = this.props;
-    const renderQuestions = questions.map(question => 
-        <Link key={question.id} to={`/questions/${question.id}`}><h4>{question.title}</h4></Link>
+
+    const renderQuestions = this.props.questions.map(question => 
+      <Link key={question.id} to={`/questions/${question.id}`}><h4>{question.title}</h4></Link>
     );
     
     return (
@@ -24,4 +30,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps)(Questions);
+export default connect(mapStateToProps, { getQuestions })(Questions);
