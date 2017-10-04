@@ -6,7 +6,7 @@ class AnswerCard extends Component {
     return (
         <div>
           <p>{this.props.content}</p>
-          RATING: <p>{this.props.rating}</p>
+          AWESOME RATING: <p>{this.props.rating}</p>
           <button onClick={this.props.upvoter}>Upvote</button>
           <button onClick={this.props.downvoter}>Downvote</button>
         </div>
