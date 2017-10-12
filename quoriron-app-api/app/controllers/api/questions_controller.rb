@@ -16,7 +16,8 @@ class Api::QuestionsController < ApplicationController
 
   def show
     @question = Question.find_by(id: params[:id])
-    render json: @question
+    answers = @question.answers
+    render json: @question.attributes.merge({answers: answers})
   end
 
   def destroy
