@@ -14,9 +14,9 @@ class Questions extends Component {
       }
     }
 
-    componentDidMount() {
-      this.props.getQuestions()
-    }
+    // componentDidMount() {
+    //   this.props.getQuestions()
+    // }
 
   render() {
     const renderQuestions = this.props.questions.map(question => 

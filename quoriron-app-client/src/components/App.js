@@ -7,7 +7,14 @@ import askQuestion from '../containers/askquestion'
 import Navbar from '../components/Navbar'
 import Home from '../components/Home'
 
+import { getQuestions } from '../actions/questions'
+import { connect } from 'react-redux';
+
 class App extends Component {
+
+  componentDidMount() {
+    this.props.getQuestions()
+  }
 
   render() {    
     return (
@@ -26,7 +33,8 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, { getQuestions })(App);
+
 
 
 
