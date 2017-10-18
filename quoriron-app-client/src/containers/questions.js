@@ -14,10 +14,6 @@ class Questions extends Component {
       }
     }
 
-    // componentDidMount() {
-    //   this.props.getQuestions()
-    // }
-
   render() {
     const renderQuestions = this.props.questions.map(question => 
       <Link key={question.id} to={`/questions/${question.id}`}><h4>{question.title}</h4></Link>

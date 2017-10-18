@@ -22,11 +22,6 @@ class Question extends Component {
     return true
   }
 
-  // componentDidMount() {
-  //   debugger
-  //   this.props.getAnswers(this.props.match.params.questionId)
-  // }
-
   handleDelete = () => {
     const { question } = this.props
     const { history } = this.props
