@@ -26,10 +26,5 @@ return (
   }    
 }
 
-const mapStateToProps = (state) => {
-  return ({
-    question: state.question
-  })
-}
 
-export default connect(mapStateToProps, { getAnswers, getQuestions })(Answers);
+export default connect(null, { getAnswers, getQuestions })(Answers);

@@ -19,14 +19,13 @@ class Question extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    debugger
     return true
   }
 
-  componentDidMount() {
-    debugger
-    this.props.getAnswers(this.props.match.params.questionId)
-  }
+  // componentDidMount() {
+  //   debugger
+  //   this.props.getAnswers(this.props.match.params.questionId)
+  // }
 
   handleDelete = () => {
     const { question } = this.props
@@ -35,9 +34,6 @@ class Question extends Component {
   }
 
   render() {
-
-    debugger
-
     const { question } = this.props
     return (
         <div>
@@ -45,7 +41,7 @@ class Question extends Component {
         <div>
           <QuestionCard question={question} />
           <button onClick={this.handleDelete}>Delete</button>
-          <CreateAnswer questionId={question.id} />
+          <CreateAnswer question={question} />
         </div>
         : "Loading" 
         }
