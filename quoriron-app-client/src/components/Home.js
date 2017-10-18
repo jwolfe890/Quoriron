@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-class componentName extends Component {
-
-  render() {  
+const Home = () => {  
     return (
         <div>
           <h4>Welcome to Quorion! Sign Up is coming soon.</h4> 
@@ -12,7 +10,6 @@ class componentName extends Component {
           <Link style={{ color: 'white' }} to={`/questions/new`}><button style={{ backgroundColor: '#b92b27', borderColor: '#b92b27' }}>Ask Question</button></Link>
         </div>
     );
-  }
 }
 
-export default componentName;
+export default Home;
