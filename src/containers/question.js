@@ -6,6 +6,8 @@ import QuestionCard from '../components/QuestionCard'
 
 import { getQuestion } from '../actions/questions'
 import { deleteQuestion } from '../actions/questions'
+import { getAnswers } from '../actions/answers'
+
 
 class Question extends Component {
 
@@ -22,7 +24,8 @@ class Question extends Component {
   }
 
   componentDidMount() {
-      this.props.getQuestion(this.props.match.params.questionId)
+    debugger
+    this.props.getAnswers(this.props.match.params.questionId)
   }
 
   handleDelete = () => {
@@ -32,10 +35,13 @@ class Question extends Component {
   }
 
   render() {
+
+    debugger
+
     const { question } = this.props
     return (
         <div>
-        { question.title ?
+        { question ?
         <div>
           <QuestionCard question={question} />
           <button onClick={this.handleDelete}>Delete</button>
@@ -49,16 +55,10 @@ class Question extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-   if (state.question && state.question.id == ownProps.match.params.questionId) {
-      return { question: state.question }
-    } else {
-      return { question: {} }
-    }
+  return {
+    question: state.questions.find(question => question.id === +ownProps.match.params.questionId)
   }
+} 
 
 
-
-
-
-
-export default connect(mapStateToProps, { deleteQuestion, getQuestion })(Question);
+export default connect(mapStateToProps, { deleteQuestion, getAnswers })(Question);
