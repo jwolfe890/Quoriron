@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 
-class AnswerCard extends Component {
 
-  render() {
+const AnswerCard = ({ content, rating, upvoter, downvoter }) => { 
     return (
         <div>
-          <p>{this.props.content}</p>
-          AWESOME RATING: <p>{this.props.rating}</p>
-          <button onClick={this.props.upvoter}>Upvote</button>
-          <button onClick={this.props.downvoter}>Downvote</button>
+          <p>{content}</p>
+          AWESOME RATING: <p>{rating}</p>
+          <button onClick={upvoter}>Upvote</button>
+          <button onClick={downvoter}>Downvote</button>
         </div>
     );
-  }
 }
 
 export default AnswerCard;

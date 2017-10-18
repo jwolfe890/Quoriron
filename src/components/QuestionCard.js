@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 
-class QuestionCard extends Component {
+const QuestionCard = ({ question }) => {
 
-  render() {
     return (
         <div>
-          <h4>{this.props.question.title}</h4>
-          <p>{this.props.question.details}</p>
+          <h4>{question.title}</h4>
+          <p>{question.details}</p>
         </div>
     );
-  }
 }
 
 export default QuestionCard;
