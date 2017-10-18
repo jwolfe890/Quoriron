@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
-import { changeAnswer } from '../actions/answers'
-import AnswerCard from '../components/Answercard'
+import { changeAnswer } from '../actions/answers';
+import AnswerCard from '../components/answercard'
 
 
 class Answer extends Component {

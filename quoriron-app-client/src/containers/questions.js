@@ -6,11 +6,10 @@ import { getQuestions } from '../actions/questions'
 
 class Questions extends Component {
 
-    shouldComponentUpdate(nextProps, nextState) {
-      if (nextProps.questions.length != this.props.questions.length) {
-        return true
-      } else {
-        return false
+    constructor(props) {
+      super(props);
+      this.state = {
+  
       }
     }
 
