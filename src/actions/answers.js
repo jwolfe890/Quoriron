@@ -52,6 +52,7 @@ export const getAnswers = (questionId) => {
 };
 
 export const changeAnswer = (questionId, updatedAnswer) => {
+    
     return dispatch => {
         return fetch(`${API_URL}/questions/${questionId}/answers/${updatedAnswer.id}`, {
             method: 'PUT',
@@ -66,7 +67,6 @@ export const changeAnswer = (questionId, updatedAnswer) => {
         .then(answer => {
             dispatch(updateAnswer(answer, questionId));
         })
-        .catch(error => console.log(error));
     };
 };
 

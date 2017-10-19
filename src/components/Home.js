@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
+<<<<<<< HEAD
 const Home = () => {  
+=======
+const Home = () => {
+>>>>>>> testing
     return (
         <div>
           <h4>Welcome to Quorion! Sign Up is coming soon.</h4> 

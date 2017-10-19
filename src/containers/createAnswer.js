@@ -21,7 +21,7 @@ class CreateAnswer extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault()
-    this.props.createAnswer(this.state, this.props.questionId)
+    this.props.createAnswer(this.state, this.props.question.id)
     this.setState({ content: '' });
   }
 
@@ -41,7 +41,7 @@ class CreateAnswer extends Component {
           <button type="submit">Add Answer</button>
         </div>
       </form>
-      <Answers questionId={this.props.questionId} />
+      <Answers question={this.props.question} />
     </div>
     );
   }
