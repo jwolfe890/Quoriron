@@ -13,8 +13,20 @@ export default (state = [], action) => {
             ...state.slice(index + 1)
             ];
       return removedQuestionObject
-      } 
+      }
+    case 'CREATE_ANSWER_SUCCESS':
+    case 'UPDATE_ANSWER_SUCCESS':
+      const index = state.findIndex(question => question.id == action.questionId);
+      const question = state[index]
+      const updatedQuestion = Object.assign( {}, question, { answers: answersReducer(question.answers, action) })
+          const updatedQuestions = [
+          ...state.slice(0, index),
+          updatedQuestion,
+          ...state.slice(index + 1)
+          ];
+      return updatedQuestions
     default:
       return state;
   }
 }
+
