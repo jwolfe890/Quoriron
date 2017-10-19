@@ -5,13 +5,11 @@ import Answer from './answer'
 
 import { getQuestions } from '../actions/questions'
 
+
 class Answers extends Component {
 
-
 render() {
-
   const { question } = this.props
-
 return (
   <div>
       { question ? question.answers.sort(function(a,b) 
@@ -20,7 +18,7 @@ return (
             <Answer key={answer.id} answer={answer} questionId={question.id} />
           ) : 
         <p>Loading</p>
-        } 
+        }
   </div>  
     );
   }    
