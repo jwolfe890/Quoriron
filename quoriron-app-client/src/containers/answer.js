@@ -6,42 +6,27 @@ import AnswerCard from '../components/answercard'
 
 
 class Answer extends Component {
-
-    constructor(props) {
-      super(props);
-      this.state = {
-        ...this.props.answer
-      }
-    this.upVote = this.upVote.bind(this);
-    this.downVote = this.downVote.bind(this)
-  }
-
+  
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.answer.count !== nextState.count 
+    return nextProps.answer.count !== this.props.answer.count 
   }
 
   upVote = () => {
-    const { questionId, changeAnswer } = this.props
-    this.setState({
-      count: this.state.count + 1
-    }, () => {
-      changeAnswer(questionId, this.state)
-    });
+    const { questionId, changeAnswer, answer } = this.props
+    const updatedAnswer = Object.assign( {}, answer, { count: answer.count + 1 })
+    changeAnswer(questionId, updatedAnswer) 
   }
 
   downVote = event => {
-    const { questionId, changeAnswer } = this.props
-    this.setState({
-      count: this.state.count - 1
-    }, () => {
-      changeAnswer(questionId, this.state)
-    });
+    const { questionId, changeAnswer, answer } = this.props
+    const updatedAnswer = Object.assign( {}, answer, { count: answer.count - 1 })
+    changeAnswer(questionId, updatedAnswer) 
   }
 
   render() {
     return (
         <div className="mybox">
-          <AnswerCard rating={this.state.count} upvoter={this.upVote} downvoter={this.downVote} content={this.props.answer.content} />
+          <AnswerCard rating={this.props.answer.count} upvoter={this.upVote} downvoter={this.downVote} content={this.props.answer.content} />
         </div>
     );
   }

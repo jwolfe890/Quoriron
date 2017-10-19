@@ -16,9 +16,6 @@ export default (state = [], action) => {
       }
     case 'CREATE_ANSWER_SUCCESS':
     case 'UPDATE_ANSWER_SUCCESS':
-
-      debugger
-
       const index = state.findIndex(question => question.id == action.questionId);
       const question = state[index]
       const updatedQuestion = Object.assign( {}, question, { answers: answersReducer(question.answers, action) })
