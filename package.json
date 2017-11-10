@@ -1,7 +1,10 @@
 {
-  "name": "eshop-app-client",
+  "name": "quoriron-client",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "7.5.0"
+  },
   "dependencies": {
     "bootstrap": "^3.3.7",
     "react": "^15.6.1",
@@ -11,7 +14,8 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.13",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "underscore": "^1.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
