@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+.mybox {
+  border: 1px solid black;
+  margin-right: 350px;
+  margin-left: 350px;
+}
+
+.rating {
+  font-size: 11px;
+}
