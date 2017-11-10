@@ -1,31 +1,19 @@
 {
-  "name": "quoriron-client",
-  "version": "0.1.0",
-  "private": true,
-  "engines": {
-    "node": "7.5.0"
-  },
+  "name": "quoriron-app-client",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": ".eslintrc.js",
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "react": "^15.6.1",
-    "react-bootstrap": "^0.31.3",
-    "react-dom": "^15.6.1",
-    "react-redux": "^5.0.6",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.13",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
-    "underscore": "^1.8.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {
     "eslint": "^4.11.0",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-react": "^7.4.0"
-  }
+    "eslint-plugin-react": "^7.4.0",
+    "react-router-dom": "^4.2.2",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }
