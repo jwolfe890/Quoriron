@@ -10,16 +10,10 @@
     "react-router-dom": "^4.2.2",
     "underscore": "^1.8.3"
   },
-    "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "devDependencies": {},
   "author": "",
   "license": "ISC"
 }
