@@ -4,9 +4,13 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": ".eslintrc.js",
   "dependencies": {
+    "ajv": "^5.3.0",
     "eslint": "^4.11.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-react": "^7.4.0",
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0",
+    "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "underscore": "^1.8.3"
   },
