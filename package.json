@@ -2,6 +2,9 @@
   "name": "quoriron-client",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "6.11.1"
+  },
   "dependencies": {
     "bootstrap": "^3.3.7",
     "react": "^15.6.1",
