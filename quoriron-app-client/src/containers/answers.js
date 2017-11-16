@@ -17,7 +17,7 @@ return (
           ).map(answer =>  
             <Answer key={answer.id} answer={answer} questionId={question.id} />
           ) : 
-        <p>Loading</p>
+        <p>Loading...</p>
         }
   </div>  
     );
