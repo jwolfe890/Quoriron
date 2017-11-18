@@ -44,9 +44,6 @@ export const getQuestion = (questionId) => {
     return fetch(`${API_URL}/questions/${questionId}`)
     .then(response => response.json())
     .then(question => {
-
-        debugger
-
       dispatch(addQuestionData(question))
 
   })
@@ -63,7 +60,9 @@ export const createQuestion = (question, routerHistory) => {
       },
       body: JSON.stringify({ question: question }),
     })
-      .then(response => response.json())
+      .then(response => {
+        response.json()
+    })
       .then(question => {
         dispatch(addQuestion(question));
         routerHistory.replace(`/questions/${question.id}`)
