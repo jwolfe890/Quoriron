@@ -52,6 +52,7 @@ export const getQuestion = (questionId) => {
 }
 
 export const createQuestion = (question, routerHistory) => {
+  console.log("trying")
   return dispatch => {
     return fetch(`${API_URL}/questions`, {
       method: 'POST',
