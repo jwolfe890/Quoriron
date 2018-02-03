@@ -4,16 +4,13 @@ import Answers from './answers'
 import { createAnswer } from '../actions/answers'
 
 class CreateAnswer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+
+    state = {
       content: ""
     }
-  }
 
   handleOnChange = event => {
     const { value } = event.target;
-
     this.setState({
       content: value
     });
@@ -26,8 +23,7 @@ class CreateAnswer extends Component {
   }
 
   render() {
-    return (
-    <div>
+    return [
       <form onSubmit={this.handleOnSubmit}>
         <div>
           <textarea
@@ -40,10 +36,9 @@ class CreateAnswer extends Component {
         <div>
           <button type="submit">Add Answer</button>
         </div>
-      </form>
+      </form>,
       <Answers question={this.props.question} />
-    </div>
-    );
+    ]
   }
 }
 
